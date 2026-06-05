@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews | StrongMind AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="sub-page">
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">StrongMind <span>AI</span></a>
+    <ul class="nav-links">
+      <li><a href='index.html' >Home</a></li>
+<li><a href='how-it-works.html' >Process</a></li>
+<li><a href='services.html' >Services</a></li>
+<li><a href='pricing.html' >Pricing</a></li>
+<li><a href='testimonials.html' class='active'>Reviews</a></li>
+<li><a href='faq.html' >FAQ</a></li>
+
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-outline" style="padding:10px 20px;font-size:14px;">Contact Us</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href='index.html' class='mobile-link'>Home</a>
+<a href='how-it-works.html' class='mobile-link'>Process</a>
+<a href='services.html' class='mobile-link'>Services</a>
+<a href='pricing.html' class='mobile-link'>Pricing</a>
+<a href='testimonials.html' class='mobile-link active'>Reviews</a>
+<a href='faq.html' class='mobile-link'>FAQ</a>
+
+  <a href="contact.html" class="btn btn-gold btn-lg">Contact Us</a>
+</div>
+
+
+<div class="page-hero">
+  <div class="container reveal">
+    <h1>Client Stories</h1>
+    <p>Real results for real Canadian small businesses.</p>
+  </div>
+</div>
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag">Real Clients. Real Results.</div>
+      <h2>What Canadian Business<br><span class="gold">Owners Are Saying</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">I'd been running my plumbing business off a Facebook page for three years. StrongMind built me a real site in less than a week and now I get 4–5 inquiries a month just from people Googling. It's the best money I spend.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DM</div>
+          <div><div class="testi-name">Dave M.</div><div class="testi-biz">DM Plumbing & Heating, Calgary</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:0.15s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">My site went live on a Thursday. By Monday I had my first online inquiry. I've been in business 12 years and never had that happen before. Now I wish I'd done this years ago.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SC</div>
+          <div><div class="testi-name">Sandra C.</div><div class="testi-biz">Serenity Wellness Studio, Mississauga</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:0.3s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Honestly I was scared to spend money on a website. But $99 a month? I spend more than that on coffee. The site looks incredible and my accountant even said it adds credibility to my practice. 100% worth it.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RL</div>
+          <div><div class="testi-name">Rachel L.</div><div class="testi-biz">RL Financial Planning, Vancouver</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">StrongMind <span style="color:var(--gold)">AI</span></a>
+        <p>Websites for Canadian small businesses — simple, affordable, done for you.</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <a href="mailto:hello@strongmindai.ca">hello@strongmindai.ca</a>
+        <a href="https://strongmindai.ca">strongmindai.ca</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 StrongMind AI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if(document.body.classList.contains('home-page')) {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }
+});
+
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+
+// SCROLL ANIMATIONS
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// FORM SUBMISSION
+function submitForm() {
+  const fname = document.getElementById('fname')?.value.trim();
+  const email = document.getElementById('email')?.value.trim();
+  if (!fname || !email) {
+    alert('Please enter your name and email to continue.');
+    return;
+  }
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>

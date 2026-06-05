@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works | StrongMind AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="sub-page">
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">StrongMind <span>AI</span></a>
+    <ul class="nav-links">
+      <li><a href='index.html' >Home</a></li>
+<li><a href='how-it-works.html' class='active'>Process</a></li>
+<li><a href='services.html' >Services</a></li>
+<li><a href='pricing.html' >Pricing</a></li>
+<li><a href='testimonials.html' >Reviews</a></li>
+<li><a href='faq.html' >FAQ</a></li>
+
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-outline" style="padding:10px 20px;font-size:14px;">Contact Us</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href='index.html' class='mobile-link'>Home</a>
+<a href='how-it-works.html' class='mobile-link active'>Process</a>
+<a href='services.html' class='mobile-link'>Services</a>
+<a href='pricing.html' class='mobile-link'>Pricing</a>
+<a href='testimonials.html' class='mobile-link'>Reviews</a>
+<a href='faq.html' class='mobile-link'>FAQ</a>
+
+  <a href="contact.html" class="btn btn-gold btn-lg">Contact Us</a>
+</div>
+
+
+<div class="page-hero">
+  <div class="container reveal">
+    <h1>Our Process</h1>
+    <p>From first conversation to live website in 7 days.</p>
+  </div>
+</div>
+<section id="how">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag">Simple Process</div>
+      <h2>Up & Running in<br><span class="gold">3 Simple Steps</span></h2>
+      <p>From first conversation to live website — we handle everything so you can focus on running your business.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Tell Us About Your Business</h3>
+        <p>Fill out a short form. We learn about your goals, services, and brand — usually takes 10 minutes.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:0.15s">
+        <div class="step-num">2</div>
+        <h3>We Build Your Site</h3>
+        <p>Our team designs and launches your professional website within 7 days. No effort required from you.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:0.3s">
+        <div class="step-num">3</div>
+        <h3>We Handle Everything</h3>
+        <p>Hosting, updates, security, and support — all included in your monthly plan. Forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">StrongMind <span style="color:var(--gold)">AI</span></a>
+        <p>Websites for Canadian small businesses — simple, affordable, done for you.</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <a href="mailto:hello@strongmindai.ca">hello@strongmindai.ca</a>
+        <a href="https://strongmindai.ca">strongmindai.ca</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 StrongMind AI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if(document.body.classList.contains('home-page')) {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }
+});
+
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+
+// SCROLL ANIMATIONS
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// FORM SUBMISSION
+function submitForm() {
+  const fname = document.getElementById('fname')?.value.trim();
+  const email = document.getElementById('email')?.value.trim();
+  if (!fname || !email) {
+    alert('Please enter your name and email to continue.');
+    return;
+  }
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>
